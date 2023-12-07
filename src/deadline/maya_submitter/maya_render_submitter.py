@@ -648,3 +648,15 @@ def show_maya_render_submitter(parent, f=Qt.WindowFlags()) -> "Optional[SubmitJo
 
     submitter_dialog.show()
     return submitter_dialog
+
+def on_submit(inputs: dict):
+    job_bundle = deadline.create_job_bundle(
+        inputs["template"]
+    )
+
+    record_telemetry()
+
+    deadline.api.create_job(
+        job_bundle,
+        inputs["farm"]
+    )
