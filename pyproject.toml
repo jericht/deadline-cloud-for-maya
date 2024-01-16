@@ -93,7 +93,6 @@ addopts = [
     "--cov-report=html:build/coverage",
     "--cov-report=xml:build/coverage/coverage.xml",
     "--cov-report=term-missing",
-    "--numprocesses=auto",
 ]
 testpaths = [ "test" ]
 looponfailroots = [
@@ -108,6 +107,8 @@ pythonpath = [
   # The Maya submitter plugin isn't structured like a Python package
   "maya_submitter_plugin/plug-ins"
 ]
+log_cli = true
+log_cli_level = "INFO"
 
 [tool.coverage.run]
 source_pkgs = [ "deadline/maya_adaptor", "deadline/maya_submitter", "maya_submitter_plugin/plugins" ]
